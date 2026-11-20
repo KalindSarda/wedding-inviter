@@ -1,0 +1,4 @@
+_worker.js
+.DS_Store
+.git
+node_modules
