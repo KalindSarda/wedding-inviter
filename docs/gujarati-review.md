@@ -64,6 +64,12 @@ Check: tone and humour (jokes do not translate literally), form of address (ત�
 | `faq.q7` | What if I cry during the ceremony? | સમારોહમાં મને રડવું આવી જાય તો? |
 | `faq.a7` | Tissues are provided. Dignity is not. | રૂમાલ આપવામાં આવશે. ગૌરવ નહીં. |
 | `footer.credits` | Made with love, chai and far too many spreadsheets. | પ્રેમ, ચા અને ઘણી બધી સ્પ્રેડશીટ સાથે બનાવેલું. |
+| `loading` | Opening your invitation… | તમારું આમંત્રણ ખૂલી રહ્યું છે… |
+| `notfound.title` | We couldn't find this invitation | આ આમંત્રણ મળ્યું નથી |
+| `notfound.body` | Please check the link you received, or ask the person who sent it to you. | કૃપા કરીને તમને મળેલી લિંક ફરી તપાસો, અથવા તમને મોકલનાર વ્યક્તિને પૂછો. |
+| `error.title` | Something went wrong | કંઈક ખોટું થયું |
+| `error.body` | Please check your connection and try again. | કૃપા કરીને તમારું ઇન્ટરનેટ કનેક્શન તપાસીને ફરી પ્રયાસ કરો. |
+| `error.retry` | Try again | ફરી પ્રયાસ કરો |
 
 ## Events (config/events.json)
 

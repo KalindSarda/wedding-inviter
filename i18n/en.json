@@ -1,7 +1,6 @@
 {
   "lang.toggle": "ગુજરાતી",
   "lang.toggleLabel": "Switch language to Gujarati",
-
   "poster.kicker": "A Aarav & Diya Production",
   "poster.title": "The Wedding",
   "poster.tagline": "Now showing at a lawn near you",
@@ -9,30 +8,25 @@
   "envelope.cta": "Tap to open your invitation",
   "envelope.for": "For {name}",
   "intro.skip": "Skip intro",
-
   "greeting.title": "{name}, you're invited",
   "greeting.sub": "Aarav & Diya are getting married, and the guest list would be incomplete without you.",
   "greeting.scroll": "Scroll for the plot",
-
   "story.heading": "The story so far",
   "story.p1": "[Placeholder story] Two people. One very long group chat. A proposal that was definitely not a surprise to anyone.",
   "story.p2": "[Placeholder story] Now there is a wedding to plan, relatives to seat, and a playlist that will start arguments.",
   "story.p3": "[Placeholder story] The only thing missing from the final scene is you.",
-
   "countdown.heading": "The countdown",
   "countdown.days": "Days",
   "countdown.hours": "Hours",
   "countdown.minutes": "Minutes",
   "countdown.seconds": "Seconds",
   "countdown.done": "It's showtime!",
-
   "events.heading": "Where you'll be",
   "events.when": "When",
   "events.where": "Where",
   "events.dress": "Dress code",
   "events.map": "Open in Maps",
   "events.none": "Details coming soon.",
-
   "rsvp.heading": "Will you be there?",
   "rsvp.sub": "One tap is all it takes. You can change your mind later.",
   "rsvp.yes": "Yes, I'm coming",
@@ -43,7 +37,6 @@
   "rsvp.answerYes": "Yes",
   "rsvp.answerNo": "No",
   "rsvp.change": "Change my answer",
-
   "faq.heading": "Frequently asked (and mostly answered)",
   "faq.q1": "Is there food?",
   "faq.a1": "Yes. Come hungry, leave in a food coma.",
@@ -59,6 +52,11 @@
   "faq.a6": "Indian Standard Time is a lovely concept. The ceremony, however, starts on time.",
   "faq.q7": "What if I cry during the ceremony?",
   "faq.a7": "Tissues are provided. Dignity is not.",
-
-  "footer.credits": "Made with love, chai and far too many spreadsheets."
+  "footer.credits": "Made with love, chai and far too many spreadsheets.",
+  "loading": "Opening your invitation…",
+  "notfound.title": "We couldn't find this invitation",
+  "notfound.body": "Please check the link you received, or ask the person who sent it to you.",
+  "error.title": "Something went wrong",
+  "error.body": "Please check your connection and try again.",
+  "error.retry": "Try again"
 }

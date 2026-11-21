@@ -1,4 +1,6 @@
 import { Hono } from "hono";
+import { securityHeaders } from "./middleware/security";
+import { guestRoutes } from "./routes/guest";
 
 export type Env = {
   DB: D1Database;
@@ -7,19 +9,21 @@ export type Env = {
 
 const app = new Hono<{ Bindings: Env }>();
 
-// Phase 1: health check only. Guest/admin routes arrive in later phases.
+app.use("*", securityHeaders);
+
 app.get("/api/health", (c) => {
   c.header("Cache-Control", "no-store");
   return c.json({ ok: true });
 });
 
-app.notFound((c) =>
-  c.json({ error: { code: "not_found", message: "Not found." } }, 404),
-);
+app.route("/api/guest", guestRoutes);
 
-app.onError((_err, c) =>
-  // Never echo error details or PII.
-  c.json({ error: { code: "internal", message: "Something went wrong." } }, 500),
-);
+app.notFound((c) => c.json({ error: { code: "not_found", message: "Not found." } }, 404));
+
+app.onError((err, c) => {
+  // Log only the error class: messages can contain query text or user input (PII).
+  console.error("unhandled_error", err.name);
+  return c.json({ error: { code: "internal", message: "Something went wrong." } }, 500);
+});
 
 export default app;
