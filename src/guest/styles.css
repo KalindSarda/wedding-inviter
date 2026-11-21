@@ -148,6 +148,9 @@ a { color: var(--accent); }
 .card dd { margin: 0; overflow-wrap: anywhere; }
 
 .rsvp__buttons { display: grid; gap: 14px; margin-top: 1.4em; }
+.rsvp__error { margin: 1em auto 0; padding: .8em 1em; max-width: 30rem; background: #fdeceb; color: #8a1c14; border: 1px solid #e9b4af; border-radius: var(--radius); }
+.rsvp__cancel { justify-self: center; }
+.btn:disabled { opacity: .6; cursor: progress; }
 .rsvp__msg { font-family: var(--font-display); font-size: 1.4rem; color: var(--accent); }
 .rsvp__current { color: var(--ink-soft); }
 

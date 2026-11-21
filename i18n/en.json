@@ -58,5 +58,8 @@
   "notfound.body": "Please check the link you received, or ask the person who sent it to you.",
   "error.title": "Something went wrong",
   "error.body": "Please check your connection and try again.",
-  "error.retry": "Try again"
+  "error.retry": "Try again",
+  "rsvp.saving": "Saving…",
+  "rsvp.error": "We couldn't save your answer. Please check your connection and tap again.",
+  "rsvp.cancel": "Keep my answer"
 }

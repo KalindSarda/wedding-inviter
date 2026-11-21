@@ -70,6 +70,9 @@ Check: tone and humour (jokes do not translate literally), form of address (ત�
 | `error.title` | Something went wrong | કંઈક ખોટું થયું |
 | `error.body` | Please check your connection and try again. | કૃપા કરીને તમારું ઇન્ટરનેટ કનેક્શન તપાસીને ફરી પ્રયાસ કરો. |
 | `error.retry` | Try again | ફરી પ્રયાસ કરો |
+| `rsvp.saving` | Saving… | સાચવી રહ્યા છીએ… |
+| `rsvp.error` | We couldn't save your answer. Please check your connection and tap again. | તમારો જવાબ સાચવી શકાયો નહીં. કૃપા કરીને ઇન્ટરનેટ તપાસીને ફરી ટેપ કરો. |
+| `rsvp.cancel` | Keep my answer | મારો જવાબ રાખો |
 
 ## Events (config/events.json)
 

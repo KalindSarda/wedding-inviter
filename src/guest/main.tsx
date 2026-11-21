@@ -5,7 +5,7 @@ import "@fontsource/noto-sans-gujarati/gujarati-700.css";
 import "./styles.css";
 import eventsConfig from "../../config/events.json";
 import { t, type Lang, type MessageKey } from "../../i18n";
-import { codeFromPath, loadGuest, type LoadResult } from "./api";
+import { codeFromPath, loadGuest, postRsvp, type LoadResult } from "./api";
 import { usePrefersReducedMotion, useLang } from "./hooks";
 import { getMockGuest } from "./mockGuest";
 import { Intro } from "./Intro";
@@ -28,7 +28,7 @@ function LangToggle({ lang, onToggle }: { lang: Lang; onToggle: () => void }) {
   );
 }
 
-function InvitationPage({ guest, scope }: { guest: GuestView; scope: string }) {
+function InvitationPage({ guest, scope, code }: { guest: GuestView; scope: string; code: string | null }) {
   const [lang, setLang] = useLang(guest.defaultLang, scope);
   const reduced = usePrefersReducedMotion();
   const [introDone, setIntroDone] = useState(false);
@@ -54,7 +54,12 @@ function InvitationPage({ guest, scope }: { guest: GuestView; scope: string }) {
         <Story lang={lang} />
         <Countdown lang={lang} target={target} />
         <Events lang={lang} events={invited} />
-        <Rsvp lang={lang} initial={guest.rsvpStatus} />
+        <Rsvp
+          lang={lang}
+          initial={guest.rsvpStatus}
+          // No code means the dev-only mock preview: accept locally without calling the API.
+          submit={(s) => (code ? postRsvp(code, s) : Promise.resolve(true))}
+        />
         <Faq lang={lang} />
         <Footer lang={lang} />
       </main>
@@ -117,7 +122,7 @@ function Root() {
   if (result.kind === "not_found") return <StatusPage kind="not_found" onRetry={() => {}} />;
   if (result.kind === "error") return <StatusPage kind="error" onRetry={() => setAttempt((n) => n + 1)} />;
   // The remembered language is scoped to this invitation link (code), so links never affect each other.
-  return <InvitationPage guest={result.guest} scope={code ?? "mock"} />;
+  return <InvitationPage guest={result.guest} scope={code ?? "mock"} code={code} />;
 }
 
 render(<Root />, document.getElementById("app")!);

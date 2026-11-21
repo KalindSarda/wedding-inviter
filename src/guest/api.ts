@@ -37,3 +37,19 @@ export async function loadGuest(code: string): Promise<LoadResult> {
 }
 
 export type { RsvpStatus };
+
+/** Saves the guest's answer. Resolves true only when the server confirms the stored status. */
+export async function postRsvp(code: string, status: RsvpStatus): Promise<boolean> {
+  try {
+    const res = await fetch(`/api/guest/${encodeURIComponent(code)}/rsvp`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ status }),
+    });
+    if (!res.ok) return false;
+    const body = (await res.json()) as { rsvpStatus?: unknown };
+    return body.rsvpStatus === status;
+  } catch {
+    return false;
+  }
+}

@@ -110,16 +110,35 @@ export function Events({ lang, events }: { lang: Lang; events: WeddingEvent[] })
   );
 }
 
-/** UI only in Phase 2. The real POST /api/guest/:code/rsvp is wired in Phase 4. */
-export function Rsvp({ lang, initial }: { lang: Lang; initial: RsvpStatus | null }) {
+/** Saves via `submit` (POST /api/guest/:code/rsvp). The shown answer only changes once the server confirms it. */
+export function Rsvp({
+  lang,
+  initial,
+  submit,
+}: {
+  lang: Lang;
+  initial: RsvpStatus | null;
+  submit: (s: RsvpStatus) => Promise<boolean>;
+}) {
   const r = useReveal<HTMLElement>();
   const [status, setStatus] = useState<RsvpStatus | null>(initial);
   const [editing, setEditing] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
   const showButtons = status === null || editing;
 
-  const choose = (s: RsvpStatus) => {
-    setStatus(s);
-    setEditing(false);
+  const choose = async (s: RsvpStatus) => {
+    if (busy) return;
+    setBusy(true);
+    setFailed(false);
+    const ok = await submit(s);
+    setBusy(false);
+    if (ok) {
+      setStatus(s);
+      setEditing(false);
+    } else {
+      setFailed(true);
+    }
   };
 
   return (
@@ -129,12 +148,17 @@ export function Rsvp({ lang, initial }: { lang: Lang; initial: RsvpStatus | null
 
       {showButtons ? (
         <div class="rsvp__buttons">
-          <button type="button" class="btn btn--primary btn--big" onClick={() => choose("yes")}>
-            {t(lang, "rsvp.yes")}
+          <button type="button" class="btn btn--primary btn--big" disabled={busy} onClick={() => choose("yes")}>
+            {busy ? t(lang, "rsvp.saving") : t(lang, "rsvp.yes")}
           </button>
-          <button type="button" class="btn btn--ghost btn--big" onClick={() => choose("no")}>
+          <button type="button" class="btn btn--ghost btn--big" disabled={busy} onClick={() => choose("no")}>
             {t(lang, "rsvp.no")}
           </button>
+          {editing && !busy && (
+            <button type="button" class="btn btn--link rsvp__cancel" onClick={() => { setEditing(false); setFailed(false); }}>
+              {t(lang, "rsvp.cancel")}
+            </button>
+          )}
         </div>
       ) : (
         <div class="rsvp__done" role="status" aria-live="polite">
@@ -148,6 +172,12 @@ export function Rsvp({ lang, initial }: { lang: Lang; initial: RsvpStatus | null
             {t(lang, "rsvp.change")}
           </button>
         </div>
+      )}
+
+      {failed && (
+        <p class="rsvp__error" role="alert">
+          {t(lang, "rsvp.error")}
+        </p>
       )}
     </section>
   );
