@@ -13,6 +13,7 @@
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
+    "@fontsource/noto-sans-gujarati": "^5.3.0",
     "hono": "^4.13.19",
     "jose": "^6.2.18",
     "preact": "^11.2.0",

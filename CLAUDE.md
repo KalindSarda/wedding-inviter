@@ -14,7 +14,7 @@ Rules:
 1. Ask before assuming anything not covered by those docs. Do not widen scope.
 2. Verify current Cloudflare docs/limits (Workers, D1, Access, rate limiting, static assets) before relying on them.
 3. Security is non-negotiable: parameterised queries only; guest API never returns headcount/id/code/other guests; admin auth verified server-side on every `/api/admin` route; escape all names; no PII (names) in logs; no phone numbers stored.
-4. Mobile-first, light bundles, accessible, honour `prefers-reduced-motion`. Gujarati strings not supplied by the owner are marked `[GU-PLACEHOLDER]`, never machine-translated.
+4. Mobile-first, light bundles, accessible, honour `prefers-reduced-motion`. Gujarati strings not supplied by the owner are marked `[GU-PLACEHOLDER]`, never machine-translated, EXCEPT the UI copy and event labels in `i18n/gu.json` / `config/events.json`, which the owner asked Claude to draft for review (see `docs/gujarati-review.md`, status DRAFT until a Gujarati speaker signs off). Venue names stay `[GU-PLACEHOLDER]`.
 5. Out of scope for the whole project: calendar integration, travel/hotel/directions, dietary/guest-count RSVP fields, parking FAQ, music (hook only), phone numbers.
 6. Run tests and typecheck before declaring a phase done. At the end of each phase, summarise what changed, what was verified (and how), what was not, and wait for the owner's go-ahead.
 7. Never create Cloudflare resources, deploy, commit or push without explicit owner approval.

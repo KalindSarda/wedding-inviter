@@ -1,29 +1,56 @@
 [
   {
     "slug": "sangeet",
-    "name": { "en": "Sangeet (dummy)", "gu": "[GU-PLACEHOLDER] સંગીત" },
+    "name": {
+      "en": "Sangeet (dummy)",
+      "gu": "સંગીત (નમૂનો)"
+    },
     "startsAt": "2027-02-12T19:00:00+05:30",
-    "venue": { "en": "Dummy Banquet Hall, City", "gu": "[GU-PLACEHOLDER]" },
+    "venue": {
+      "en": "Dummy Banquet Hall, City",
+      "gu": "[GU-PLACEHOLDER] સ્થળ"
+    },
     "mapUrl": "",
-    "dressCode": { "en": "Festive", "gu": "[GU-PLACEHOLDER]" },
+    "dressCode": {
+      "en": "Festive",
+      "gu": "ઉત્સવી"
+    },
     "order": 1
   },
   {
     "slug": "wedding",
-    "name": { "en": "Wedding Ceremony (dummy)", "gu": "[GU-PLACEHOLDER] લગ્ન" },
+    "name": {
+      "en": "Wedding Ceremony (dummy)",
+      "gu": "લગ્ન વિધિ (નમૂનો)"
+    },
     "startsAt": "2027-02-13T10:00:00+05:30",
-    "venue": { "en": "Dummy Wedding Lawn, City", "gu": "[GU-PLACEHOLDER]" },
+    "venue": {
+      "en": "Dummy Wedding Lawn, City",
+      "gu": "[GU-PLACEHOLDER] સ્થળ"
+    },
     "mapUrl": "",
-    "dressCode": { "en": "Traditional", "gu": "[GU-PLACEHOLDER]" },
+    "dressCode": {
+      "en": "Traditional",
+      "gu": "પરંપરાગત"
+    },
     "order": 2
   },
   {
     "slug": "reception",
-    "name": { "en": "Reception (dummy)", "gu": "[GU-PLACEHOLDER] રિસેપ્શન" },
+    "name": {
+      "en": "Reception (dummy)",
+      "gu": "રિસેપ્શન (નમૂનો)"
+    },
     "startsAt": "2027-02-13T19:30:00+05:30",
-    "venue": { "en": "Dummy Grand Ballroom, City", "gu": "[GU-PLACEHOLDER]" },
+    "venue": {
+      "en": "Dummy Grand Ballroom, City",
+      "gu": "[GU-PLACEHOLDER] સ્થળ"
+    },
     "mapUrl": "",
-    "dressCode": { "en": "Formal", "gu": "[GU-PLACEHOLDER]" },
+    "dressCode": {
+      "en": "Formal",
+      "gu": "ઔપચારિક"
+    },
     "order": 3
   }
 ]
